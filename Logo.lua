@@ -15,7 +15,7 @@ local TweenService = game:GetService("TweenService")
 
 local Logo = {}
 
-function Logo.DisplayHeart()
+function Logo.DisplayHeart(Duration)
     local Config = TweenInfo.new(1.5, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
     local In = TweenService:Create(Heart, Config, {ImageTransparency = 0})
     local Out = TweenService:Create(Heart, Config, {ImageTransparency = 1})
@@ -23,7 +23,7 @@ function Logo.DisplayHeart()
     In:Play()
 
     In.Completed:Connect(function()
-        wait(0.5)
+        wait(Duration)
         Out:Play()
     end)
 
