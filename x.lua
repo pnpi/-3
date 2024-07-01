@@ -39,32 +39,6 @@ end
 
 createOpeningAnimation()
 
-getgenv()["</3"] = {
-    ["FOV"] = {
-        ["Color"] = Color3.fromRGB(0, 255, 255),
-        ["Radius"] = 100,
-        ["Filled"] = false,
-        ["Visible"] = true,
-        ["Thickness"] = 1,
-        ["Position"] = "Target"
-    },
-
-    ["Spin"] = {
-        ["Speed"] = 2,
-        ["SpinKey"] = Enum.KeyCode.K
-    },
-
-    ["Aim"] = {
-        ["AimKey"] = Enum.KeyCode.E,
-        ["Mode"] = "Toggle",
-        ["Alpha"] = 0.0611235,
-        ["AlphaStyle"] = Enum.EasingStyle.Sine,
-        ["AlphaDirection"] = Enum.EasingDirection.InOut,
-        ["MovementDelta"] = 2,
-        ["HitParts"] = {"Head", "UpperTorso"}
-    }
-}
-
 local player = game.Players.LocalPlayer
 local mouse = player:GetMouse()
 local camera = game.Workspace.CurrentCamera
