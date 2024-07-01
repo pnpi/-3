@@ -11,12 +11,14 @@ Heart.BackgroundTransparency = 1
 Heart.ImageTransparency = 1
 Heart.Parent = ScreenGui
 
-local TweenSerivce = game:GetService("TweenService")
+local TweenService = game:GetService("TweenService")
 
-function DisplayHeart()
+local Logo = {}
+
+function Logo.DisplayHeart()
     local Config = TweenInfo.new(1.5, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
-    local In = TweenSerivce:Create(Heart, Config, {ImageTransparency = 0})
-    local Out = TweenSerivce:Create(Heart, Config, {ImageTransparency = 1})
+    local In = TweenService:Create(Heart, Config, {ImageTransparency = 0})
+    local Out = TweenService:Create(Heart, Config, {ImageTransparency = 1})
     
     In:Play()
 
@@ -29,3 +31,5 @@ function DisplayHeart()
         ScreenGui:Destroy()
     end)
 end
+
+return Logo
