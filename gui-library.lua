@@ -4620,13 +4620,8 @@ function library:CreateSettingsTab(menu)
     local configSection = settingsTab:AddSection('Config', 2);
     local mainSection = settingsTab:AddSection('Main', 1);
     local creditsSection = settingsTab:AddSection('Credits', 2);
-    creditsSection:AddSeparator({text = 'Owners/Developers'});
-    creditsSection:AddText({text = "xz#1111"})
-    creditsSection:AddText({text = "goof#1000"})
-    creditsSection:AddSeparator({text = 'Helpers'});
-    creditsSection:AddText({text = "encode#9999"})
-    creditsSection:AddText({text = "Vault#5434"})
-
+    creditsSection:AddSeparator({text = 'Owner'});
+    creditsSection:AddText({text = "@vjei"})
 
     configSection:AddBox({text = 'Config Name', flag = 'configinput'})
     configSection:AddList({text = 'Config', flag = 'selectedconfig'})
@@ -4682,34 +4677,6 @@ function library:CreateSettingsTab(menu)
         else
             actionservice:UnbindAction('FreezeMovement');
         end
-    end})
-
-    mainSection:AddButton({text = 'Join Discord', flag = 'joindiscord', confirm = true, callback = function()
-        local res = syn.request({
-            Url = 'http://127.0.0.1:6463/rpc?v=1',
-            Method = 'POST',
-            Headers = {
-                ['Content-Type'] = 'application/json',
-                Origin = 'https://discord.com'
-            },
-            Body = game:GetService('HttpService'):JSONEncode({
-                cmd = 'INVITE_BROWSER',
-                nonce = game:GetService('HttpService'):GenerateGUID(false),
-                args = {code = getgenv().Config.Invite}
-            })
-        })
-    end})
-    
-    mainSection:AddButton({text = 'Copy Discord', flag = 'copydiscord', callback = function()
-        setclipboard('https://discord.gg/'..getgenv().Config.Invite)
-    end})
-
-    mainSection:AddButton({text = 'Rejoin Server', confirm = true, callback = function()
-        game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, game.JobId);
-    end})
-
-    mainSection:AddButton({text = 'Copy Join Script', callback = function()
-        setclipboard(([[game:GetService("TeleportService"):TeleportToPlaceInstance(%s, "%s")]]):format(game.PlaceId, game.JobId))
     end})
 
     mainSection:AddButton({text = 'Unload', confirm = true, callback = function()
