@@ -1,1 +1,3 @@
-Key1
+return {
+  "test_1",
+}
